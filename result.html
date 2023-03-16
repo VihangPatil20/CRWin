@@ -21,8 +21,92 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+
+
         }
+
+        
     </style>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+
+window.onload = function() {
+  // your chart.js code here
+
+
+
+        // Define the data for each candidate
+const candidate1Data = {
+  label: 'Candidate 1',
+  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+  borderColor: 'rgba(54, 162, 235, 1)',
+  borderWidth: 1,
+  data: [60]
+};
+
+const candidate2Data = {
+  label: 'Candidate 2',
+  backgroundColor: 'rgba(255, 206, 86, 0.2)',
+  borderColor: 'rgba(255, 206, 86, 1)',
+  borderWidth: 1,
+  data: [30]
+};
+
+const candidate3Data = {
+  label: 'Candidate 3',
+  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+  borderColor: 'rgba(255, 99, 132, 1)',
+  borderWidth: 1,
+  data: [10]
+};
+
+// Set the chart options
+const options = {
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  }
+};
+
+// Get the canvas elements and create the charts
+const candidate1Chart = new Chart(document.getElementById('candidate1-chart'), {
+  type: 'bar',
+  data: {
+    labels: ['Votes'],
+    datasets: [candidate1Data]
+  },
+  options: options
+});
+
+const candidate2Chart = new Chart(document.getElementById('candidate2-chart'), {
+  type: 'bar',
+  data: {
+    labels: ['Votes'],
+    datasets: [candidate2Data]
+  },
+  options: options
+});
+
+const candidate3Chart = new Chart(document.getElementById('candidate3-chart'), {
+  type: 'bar',
+  data: {
+    labels: ['Votes'],
+    datasets: [candidate3Data]
+  },
+  options: options
+});
+
+
+
+
+}
+
+    </script>
 </head>
 <body>
   
@@ -98,73 +182,61 @@
     </div>
   <br>
   <br>
+</div>
 
-
-    <div>
-        <nav>
-            <ul>
-                
-              <li><strong>CRWin - Integrated CR Elections and Predictions
-              </strong></li>
-            
-            </ul>
-            <ul>
-              
-              <li><a href="#" role="button" onclick="window.location.href='result.html'">See Results</a></li>
-            </ul>
-          </nav>
+<canvas id="candidate1-chart"></canvas>
+<canvas id="candidate2-chart"></canvas>
+<canvas id="candidate3-chart"></canvas>
 
         
-        
-    </div>
-
-    <article>
-
-
-
-      <div class="cards">
-        <div class="card" data-votes="0">
-          <div class="poll__title">Vote for Candidate 1</div>
-          <div class="poll__option">
-            <img src="assets/candidate.jpg" alt="Candidate 1" width="50%" class="poll__image">
-            <br><br>
-            <div class="poll__option-fill"></div>
-            <div class="poll__option-info"></div>
-            <button class="poll__button">Vote</button>
+<div class="container">
+    <h1 class="text-center">Election Results</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Candidate 1</h2>
           </div>
-        </div>
-      
-        <div class="card" data-votes="0">
-          <div class="poll__title">Vote for Candidate 2</div>
-          <div class="poll__option">
-            <img src="assets/candidate.jpg" alt="Candidate 2" width="50%" class="poll__image">
-            <br><br>
-            <div class="poll__option-fill"></div>
-            <div class="poll__option-info"></div>
-            <button class="poll__button">Vote</button>
-          </div>
-        </div>
-      
-        <div class="card" data-votes="0">
-          <div class="poll__title">Vote for Candidate 3</div>
-          <div class="poll__option">
-            <img src="assets/candidate.jpg" alt="Candidate 3" width="50%" class="poll__image">
-            <br><br>
-            <div class="poll__option-fill"></div>
-            <div class="poll__option-info"></div>
-            <button class="poll__button">Vote</button>
+          <div class="card-body">
+            <canvas id="candidate1-chart"></canvas>
+            <p>120 votes</p>
           </div>
         </div>
       </div>
-      
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Candidate 2</h2>
+          </div>
+          <div class="card-body">
+            <canvas id="candidate2-chart"></canvas>
+            <p>60 votes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h2>Candidate 3</h2>
+          </div>
+          <div class="card-body">
+            <canvas id="candidate3-chart"></canvas>
+            <p>20 votes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 
+</article>
 
-
-    </article>
-
-    <footer class="text-center mt-4">
-      <p>&copy; 2023 CRWin. All rights reserved.</p>
-    </footer>
+<footer class="text-center mt-4">
+  <p>&copy; 2023 CRWin. All rights reserved.</p>
+</footer>
 
 </body>
+</html>
+
+  </body>
 </html>
