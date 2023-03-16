@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRWin</title>
+    <meta name="description" content="A classic company or blog layout with a sidebar. Built with Pico CSS.">
+    <link rel="shortcut icon" href="">
+    <link rel="canonical" href="https://picocss.com/examples/company/">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyA8XQO5nVQU6LTSi2IQ9r556G3V1nW7L68",
+        authDomain: "ang-voting.firebaseapp.com",
+        projectId: "ang-voting",
+        storageBucket: "ang-voting.appspot.com",
+        messagingSenderId: "463256725267",
+        appId: "1:463256725267:web:1bc78a5ebb4f9ebd465ce6",
+        measurementId: "G-77Z20KXT18"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+
+    <!-- Custom styles for this example -->
+    <link rel="stylesheet" href="home-page.component.css">
+
+    <style>
+      .main-container {
+        display: flex;
+      }
+      
+      main {
+        flex: 1;
+      }
+      
+      aside {
+        width: 30%;
+      }
+    </style>
+  </head>
+
+  <body>
+
+
+  
+
+
+
+    
+    
+
+    <!-- Hero -->
+    <div class="hero" data-theme="dark">
+      <nav class="container-fluid">
+        <ul>
+          <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong> </strong></a></li>
+        </ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast">Info</summary>
+              <ul role="listbox">
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast">Features</summary>
+              <ul role="listbox">
+                <li><a href="../preview/">Preview</a></li>
+                <li><a href="../preview-rtl/">Right-to-left</a></li>
+                <li><a href="../classless/">Class-less</a></li>
+                <li><a href="../basic-template/">Basic template</a></li>
+                <li><a href="../company/">Company</a></li>
+                <li><a href="../google-amp/">Google Amp</a></li>
+                <li><a href="../sign-in/">Sign in</a></li>
+                <li><a href="../bootstrap-grid/">Bootstrap grid</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+
+
+
+
+
+
+
+      
+    </div><!-- ./ Hero -->
+
+
+    
+
+
+
+
+
+
+    <div>
+
+     
+
+
+  
+      <!-- Nav -->
+      <nav>
+        <ul>
+          <li>
+            <button on="tap:sidebar-left.toggle" aria-label="Close menu">
+              <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <h1>CRWin</h1>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#" aria-label="">
+              <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="0px">
+                <path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                </path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav><!-- ./ Nav -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+
+
+
+
+
+
+
+
+    
+    <div>
+      <nav>
+            <ul>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/home-page.component.html'">Home</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/about-us.html'">About</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/services.html'">Services</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/feedback.html'">Contact us</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/Demographic.html'">Demographics</a></li> 
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/candidate-info.html'">Candidates</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/news.html'">News</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voter-stats.html'">Engagement</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voting.html'">Begin Voting</a></li>
+              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/comment.html'">Discussion</a></li>
+              
+              
+              
+              
+            </ul>
+          </nav>
+     
+
+
+    </div>
+
+
+  
+
+  <br>
+  <br>
+
+
+
+
+
+    <div class="main-container">
+      <main>
+
+   
+    <!-- Main -->
+    <main class="container">
+      <div class="grid">
+
+        <section>
+          <hgroup>
+            <h1>Welcome to the CRWin</h1>
+            <h3>An Integrated CR Elections and Predictions App
+            </h3>
+          </hgroup>
+
+          <br>
+          <br>
+
+          <p>College class representative voting is an important part of student life. These representatives are responsible for advocating for the needs and concerns of their class to the college administration and other decision-making bodies. In addition, they play a crucial role in organizing events and activities for their class, creating a sense of community and enhancing the overall college experience.
+          </p>
+          <p>
+            To facilitate the process of electing college class representatives, a voting web app can be developed. This app can be designed to allow students to cast their vote securely and efficiently, from the comfort of their own devices. The app can provide all the necessary information about the candidates, including their profiles, manifestos, and endorsements, in a user-friendly and accessible manner.
+          </p>
+          <p>
+            The voting web app can also provide real-time updates on the progress of the election, including the number of votes cast, the leading candidates, and the overall voter turnout. This can create a sense of excitement and engagement among the student body, encouraging them to participate in the election process and exercise their right to vote.
+          </p>
+          <p>
+            To ensure the security and integrity of the election, the voting web app can be designed with various security features. For instance, users can be required to verify their identity using their student ID or other relevant information. In addition, the app can use encryption and other security protocols to protect the data and prevent unauthorized access.
+
+          </p>
+
+          <header class="container">
+            <hgroup>
+              <h2></h2>
+            </hgroup>
+            <p><a href="#" role="button" onclick="window.location.href='http://127.0.0.1:5500/voting.html'">Begin Voting</a></p>
+          </header>
+       
+          
+ 
+
+
+     
+
+        
+      </div>
+    </main><!-- ./ Main -->
+
+  </main>
+
+
+
+
+  <aside>
+
+
+
+    
+    <h2>Our Services</h2>
+  
+    <a href="#" aria-label="Example" onclick="event.preventDefault()" class="image-1"></a>
+    
+    
+      <a href="#" onclick="event.preventDefault()">Cast your Vote</a>
+      
+    
+    <a href="#" aria-label="Example" onclick="event.preventDefault()" class="image-2"></a>
+  
+    
+      <a href="#" onclick="event.preventDefault()">Voter Demographics</a>
+      
+    
+    <a href="#" aria-label="Example" onclick="event.preventDefault()" class="image-3"></a>
+    
+    
+      <a href="#" onclick="window.location.href='http://127.0.0.1:5500/voting.html'">Predict CR Elections through Data</a>
+      
+    
+  </aside>
+  
+</div>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
+
+<!-- app.component.html -->
+
+
+

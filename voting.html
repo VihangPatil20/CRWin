@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="voting.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <script src="main.js" defer></script>
+    <style>
+        .poll__option {
+            width: 100%;
+        }
+        .card {
+            flex: 1;
+            padding: 1rem;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                
+              <li><strong>CRWin - Integrated CR Elections and Predictions
+              </strong></li>
+            
+            </ul>
+            <ul>
+              
+              <li><a href="#" role="button">See Results</a></li>
+            </ul>
+          </nav>
+
+        
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </nav>
+    
+
+    </div>
+
+    <article>
+        <div class="cards">
+
+            <div class="card">
+                <div class="poll__title"> </div>
+
+                <div class="poll__option">
+                  <img src="assets/candidate.jpg" alt="Candidate 1"  width="50%" class="poll__image">
+                  <br>
+                  <br>
+                    <div class="poll__option-fill"> </div>
+                    <div class="poll__option-info"> </div>
+                        <span class="poll__label"> Candidate 1</span>
+                        <span class="poll__label"> </span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="poll__title"> </div>
+
+                <div class="poll__option">
+                  <img src="assets/candidate.jpg" alt="Candidate 1"  width="50%" class="poll__image">
+                  <br>
+                  <br>
+                    <div class="poll__option-fill"> </div>
+                    <div class="poll__option-info"> </div>
+                        <span class="poll__label"> Candidate 2</span>
+                        <span class="poll__label"> </span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="poll__title"> </div>
+
+                <div class="poll__option">
+                  <img src="assets/candidate.jpg" alt="Candidate 1" width="50%" class="poll__image">
+                  <br>
+                  <br>
+                    <div class="poll__option-fill"> </div>
+                    <div class="poll__option-info"> </div>
+                        <span class="poll__label"> Candidate 3</span>
+                        <span class="poll__label"> </span>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+</body>
+</html>
