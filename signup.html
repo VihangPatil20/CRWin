@@ -13,84 +13,19 @@
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
 
     <!-- Custom styles for this example -->
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="signup.css">
 
-
-
-
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyA8XQO5nVQU6LTSi2IQ9r556G3V1nW7L68",
-        authDomain: "ang-voting.firebaseapp.com",
-        projectId: "ang-voting",
-        storageBucket: "ang-voting.appspot.com",
-        messagingSenderId: "463256725267",
-        appId: "1:463256725267:web:1bc78a5ebb4f9ebd465ce6",
-        measurementId: "G-77Z20KXT18"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
-
-
-
-
-
-
-
-
-
+    <script src="auth.js"></script>
 
   </head>
 
   <body>
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Nav -->
     <nav class="container-fluid">
       <ul>
         <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong>CRWin</strong></a></li>
       </ul>
       <ul>
-        <li>
-          <details role="list" dir="rtl">
-            <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
-            <ul role="listbox">
-              <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-              <li><a href="#" data-theme-switcher="light">Light</a></li>
-              <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-            </ul>
-          </details>
-        </li>
         
         
       </ul>
@@ -113,7 +48,7 @@
                 Remember me
               </label>
             </fieldset>
-            <button type="submit" class="contrast" onclick="event.preventDefault()">Login</button>
+            <button type="submit" class="contrast" onclick="window.location.href='home-page.component.html'">Login</button>
           </form>
         </div>
         <div></div>
@@ -121,8 +56,11 @@
     </main><!-- ./ Main -->
 
     <!-- Footer -->
-  
 
+    <footer class="text-center mt-4">
+      <p>&copy; 2023 CRWin. All rights reserved.</p>
+    </footer>
+  
   </body>
 
 </html>

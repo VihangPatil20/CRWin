@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,150 +6,99 @@
    
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
     <link rel="stylesheet" href="form.css">
-    <script src="form.js"></script>
-    <title>Hello, world!</title>
+    <script src="auth.js"></script>
+    <title>Register</title>
 
-
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
     
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyA8XQO5nVQU6LTSi2IQ9r556G3V1nW7L68",
-        authDomain: "ang-voting.firebaseapp.com",
-        projectId: "ang-voting",
-        storageBucket: "ang-voting.appspot.com",
-        messagingSenderId: "463256725267",
-        appId: "1:463256725267:web:1bc78a5ebb4f9ebd465ce6",
-        measurementId: "G-77Z20KXT18"
-      };
-    
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
-
-
-
-
   </head>
   <body>
     <main class="container">
-      <h1>Welcome! to CRWin  </h1>
-   
+      <h1>Welcome! to CRWin</h1>
 
-    <body>
-
-    <!-- <div id="first" class="red" > testing element red</div>         -->
-        
-        <main class="container">
-
-            <article>Let's Begin!
-
-            
-            <h1>Registration Form
-
-            </h1>
-        
+      <article>
+        <h1>Registration Form</h1>
+        <form id="registration-form">
+          <div class="grid">
             <div>
-                <form name="myForm" onsubmit="return validateForm()" method="pos
-                ">
-                    
-
-                        <!-- Grid -->
-                        <div class="grid">
-                      
-                          <!-- Markup example 1: input is inside label -->
-                          <label for="firstname">
-                            First name
-                            <input type="text" id="firstname" name="firstname" placeholder="First name" required>
-                          </label>
-                      
-                          <label for="lastname">
-                            Last name
-                            <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
-                          </label>
-                      
-                        </div>
-                      <br>
-                        <!-- Markup example 2: input is after label -->
-                        <label for="email">Email address</label>
-                        <input type="email" id="email" name="email" placeholder="Email address" required>
-                        <small></small>
-
-                          <br>
-                          Password
-                        <input type="password" placeholder="Set password">
-
-                      
-                       
-                      
-                      </form>
-
-                      <label for="moodle">Moodle ID:</label> 
-                      <details role="list"> 
-                        <summary aria-haspopup="listbox">Moodle ID</summary>
-                        <ul role="listbox">
-                          <li><a>Action</a></li>
-                          <li><a>Another action</a></li>
-                          <li><a>Something else here</a></li>
-                        </ul>
-                      </details>
-                      
-                      <!-- Select -->
-                      <label for="roll no">Roll no:</label> 
-                      <select>
-                        <option value="" disabled selected>Roll no</option>
-                        <option>…</option>
-                      </select>
-
-
-                
-                
-                <!-- <div class="form-design"> -->
-                     <!-- Date -->
-                    <!-- <label for="date">Age:
-                      <input type="date" id="date" name="date">
-                    </label> -->
-
-                
-                <!-- <div class="form-design">
-                    Address: <input type="text" name="fname">
-
-                  
-         -->
-
-                
-
-               
-                <input type="submit">
-                
-                </form>
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="First name" required>
+          </div>
+          <div>
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+          </div>
+          </div>
         
-            </div>
-
-            <a href="#" role="button" class="outline"
-            onclick="toggleColor()"> Change Theme</a>
-
-        </article>
-              
-
-
-
-
-        </main>
-    </main>
-
-   
-
-      </body>
-  </body>
-</html>
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="Email address" required>
+        
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <br>
+          <br>
+        
+          <button type="submit" onclick="window.location.href='home-page.component.html'">Register</button>
 
 
-
+<br>
+<br>
+          <header class="container">
+        
+            <p><a href="#" role="button" onclick="window.location.href='signup.html'"><small>Already have an account?</small></a></p>
+          </header>
+       
+        </form>
+        
+        <script>
+          // Initialize Firebase
+          const firebaseConfig = {
+    apiKey: "AIzaSyAAG79_O_E-nszPpNuS3ACYn5UVj0Ygz08Y",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    databaseURL: "https://crwin-1dbd6-default-rtdb.firebaseio.com/",
+    projectId: "crwin-1dbd6",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "317785611952",
+    appId: "1:317785611952:web:3bf3aeb5a0673c5cdde575"
+  };
+  
+          firebase.initializeApp(firebaseConfig);
+        
+          // Get a reference to the Firebase Realtime Database service
+          const database = firebase.database();
+        
+          // Get a reference to the Firebase Authentication service
+          const auth = firebase.auth();
+        
+          // Handle user registration form submission
+          async function registerUser() {
+            event.preventDefault();
+        
+            // Get user input values
+            const firstName = document.getElementById('firstname').value;
+            const lastName = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            try {
+              // Create a new user with email and password
+              const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        
+              // Save user data to Firebase Realtime Database
+              await database.ref('users/' + userCredential.user.uid).set({
+                firstName: firstName,
+                lastName: lastName,
+                email: email
+              });
+        
+              // Redirect to home page
+              window.location.href = 'home-page.component.html';
+            } catch (error) {
+              // Handle errors
+              console.error(error);
+              alert('An error occurred while registering the user. Please try again later.');
+            }
+          }
+        </script>
+        
+      </article>
+    </main

@@ -1,0 +1,43 @@
+/* Global CSS variables */
+:root {
+    --spacing-company: 3rem;
+    --font-weight: 400;
+    --border-radius: 0;
+  }
+
+  nav ul li{
+    margin-left: 70px;
+  }
+  
+  /* Typography */
+  h2,
+  h3,
+  hgroup > :last-child {
+    font-weight: 200;
+  }
+  
+  small {
+    color: var(--muted-color);
+  }
+  
+  /* Header */
+  .hero {
+    background-color: #394046;
+    background-image: url("assets/image7.jpg");
+    
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  header {
+    padding: var(--spacing-company) 0;
+  }
+  
+  header hgroup > :last-child {
+    color: var(--h3-color);
+  }
+  
+  header hgroup {
+    margin-bottom: var(--spacing-company);
+  }
