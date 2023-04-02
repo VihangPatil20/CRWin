@@ -2,103 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voter Stats</title>
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.0.4/css/pico.min.css">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="voting.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="logout.js"></script>
+
+<!-- Your own JavaScript file -->
+<script src="engagement.js"></script>
+
+    
     <style>
-        body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+      /* Simple styling for the heading and candidate names */
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .class-heading {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .candidate {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+      .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-        h1 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+.class-results {
+  text-align: center;
+  margin: 10px 0;
+}
 
-        table {
-            border-collapse: collapse;
-            margin: 2rem 0;
-        }
+.class-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-        table th,
-        table td {
-            border: 1px solid #ccc;
-            padding: 0.5rem;
-        }
-
-        table th {
-            background-color: #eee;
-        }
-
-        .stat {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
+.candidate {
+  display: inline-block;
+  margin: 0 10px;
+}
+.class-results div {
+      display: inline-block;
+      margin-right: 10px;
+      width: 100px;
+    }
+      
     </style>
+   
 </head>
 <body>
-
-
-
-    <h1>Voter Statistics</h1>
-
-
-    <h3>
-        Info about voter engagement will be displayed here
-    </h3>
-
-    <div class="stat">Voter Turnout: 64%</div>
-    <div class="stat">Number of Registered Voters: 59</div>
-    <div class="stat">Number of Votes Cast: 43</div>
-
-    <table>
-        <thead>
-          <tr>
-            <th>Demographic Group</th>
-            <th>Total Votes</th>
-            <th>Percentage</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          <tr>
-            <td>Male CR candidate 1</td>
-            <td>15 </td>
-            <td> 25% vote share</td>
-          </tr>
-          <tr>
-              <td>Male CR candidate 2</td>
-              <td>12</td>
-              <td> 20% vote share</td>
-            </tr>
-          <tr>
-            <td>Female CR candidate 1</td>
-            <td>18</td>
-            <td>30% vote share</td>
-          </tr>
-          <tr>
-              <td>Female CR candidate 2</td>
-              <td>15</td>
-              <td>25% vote share</td>
-            </tr>
-          
-         
-        </tbody>
-      </table>
-
-    <div class="stat">Voter Engagement:</div>
-    <ul>
-        <li>Number of Votes Cast on the day of election:</li>
-        <li>Number of Votes Cast in total:</li>
+  
+    <!-- Hero -->
+    <div class="hero" data-theme="dark">
+      <nav class="container-fluid">
+        <ul>
+          <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong> </strong></a></li>
+        </ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="contrast"></summary>
+              
+              </ul>
+            </details>
+          </li>
+          <li>
+            
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+      
+    </div><!-- ./ Hero -->
+    <div>
+      <!-- Nav -->
+      <nav>
+        <ul>
+          <li>
+            <button on="tap:sidebar-left.toggle" aria-label="Close menu">
+              <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+            </button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <h1>CRWin</h1>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#" aria-label="">
+              <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="0px">
+                <path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                </path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav><!-- ./ Nav -->
+  </div>   
+    <div>
+      <nav>
+            <ul>
+              <li><a href="#"  onclick="window.location.href='signup.html'">Log out</a></li>
+              <li><a href="#"  onclick="window.location.href='home-page.component.html'">Home</a></li>
+              <li><a href="#"  onclick="window.location.href='about-us.html'">About</a></li>
+              <li><a href="#"  onclick="window.location.href='services.html'">Services</a></li>
+              <li><a href="#"  onclick="window.location.href='feedback.html'">Contact</a></li>
+              <li><a href="#"  onclick="window.location.href='Prediction.html'">Prediction</a></li> 
+              <li><a href="#"  onclick="window.location.href='candidate-info.html'">Candidates</a></li>
+              <li><a href="#"  onclick="window.location.href='news.html'">News</a></li>
+              <li><a href="#"  onclick="window.location.href='voter-stats.html'">Engagement</a></li>
+              <li><a href="#"  onclick="window.location.href='voting.html'"> Vote</a></li>
+              <li><a href="#"  onclick="window.location.href='result.html'">Results</a></li>
         
-    </ul>
+            </ul>
+          </nav>
+    </div>
+  <br>
+  <br>
+</div>
 
-    <footer class="text-center mt-4">
-        <p>&copy; 2023 CRWin. All rights reserved.</p>
-      </footer>
+
+
+<article>
+  <container>
+    <h1 style="font-size: 24px;">Engagements Analysis</h1>
+    <h3>Voter Turnout</h3>
+    <p>Total number of registered voters: <span id="registeredVoters"></span></p>
+    <p>Total number of votes cast so far: <span id="votesCast"></span></p>
+    <p>Percentage of registered voters who have cast their vote: <span id="voterTurnout"></span></p>
+    <h3>Vote Count</h3>
+    <div class="class-results">
+      <div id="classA"></div>
+      <div id="classB"></div>
+      <div id="classC"></div>
+    </div>
+    <a href="#" role="button" onclick="showAnalysis()" style="font-size: 18px;">Show Analysis</a>
+  </container>
+</article>
+
+</article>
+
+<footer class="text-center mt-4">
+  <p>&copy; 2023 CRWin. All rights reserved.</p>
+</footer>
+
 </body>
+</html>
+
+  </body>
 </html>

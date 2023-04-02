@@ -27,17 +27,17 @@ function result() {
     // Update the HTML elements with the individual count values for all three classes
     const count1Displays = document.querySelectorAll("#count1");
     count1Displays.forEach((display, index) => {
-      display.innerHTML = `Candidate 1: ${voteCounts[index].count1}`;
+      display.innerHTML = ` ${voteCounts[index].count1}`;
     });
 
     const count2Displays = document.querySelectorAll("#count2");
     count2Displays.forEach((display, index) => {
-      display.innerHTML = `Candidate 2: ${voteCounts[index].count2}`;
+      display.innerHTML = ` ${voteCounts[index].count2}`;
     });
 
     const count3Displays = document.querySelectorAll("#count3");
     count3Displays.forEach((display, index) => {
-      display.innerHTML = `Candidate 3: ${voteCounts[index].count3}`;
+      display.innerHTML = ` ${voteCounts[index].count3}`;
     });
   })
   .catch((error) => {

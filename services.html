@@ -7,81 +7,11 @@
     <title>Services - Your Website Name</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.0.2/css/pico.min.css">
     <link rel="stylesheet" href="home-page.component.css">
+    <script src="logout.js"></script>
 </head>
 <body>
- <!-- Hero -->
- <div class="hero" data-theme="dark">
-    <nav class="container-fluid">
-      <ul>
-        <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong> </strong></a></li>
-      </ul>
-      <ul>
-        <li>
-          <details role="list" dir="rtl">
-            <summary aria-haspopup="listbox" role="link" class="contrast"></summary>
-            
-            </ul>
-          </details>
-        </li>
-        <li>
-          
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
-    
-  </div><!-- ./ Hero -->
-  <div>
-    <!-- Nav -->
-    <nav>
-      <ul>
-        <li>
-          <button on="tap:sidebar-left.toggle" aria-label="Close menu">
-            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <h1>CRWin</h1>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <a href="#" aria-label="">
-            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="0px">
-              <path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
-              </path>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav><!-- ./ Nav -->
-</div>   
-  <div>
-    <nav>
-          <ul>
-            <li><a href="#"  onclick="window.location.href='signup.html'">Log out</a></li>
-            <li><a href="#"  onclick="window.location.href='home-page.component.html'">Home</a></li>
-            <li><a href="#"  onclick="window.location.href='about-us.html'">About</a></li>
-            <li><a href="#"  onclick="window.location.href='services.html'">Services</a></li>
-            <li><a href="#"  onclick="window.location.href='feedback.html'">Contact</a></li>
-            <li><a href="#"  onclick="window.location.href='Prediction.html'">Prediction</a></li> 
-            <li><a href="#"  onclick="window.location.href='candidate-info.html'">Candidates</a></li>
-            <li><a href="#"  onclick="window.location.href='news.html'">News</a></li>
-            <li><a href="#"  onclick="window.location.href='voter-stats.html'">Engagement</a></li>
-            <li><a href="#"  onclick="window.location.href='voting.html'"> Vote</a></li>
-            <li><a href="#"  onclick="window.location.href='result.html'">Results</a></li>
-      
-            
-          </ul>
-        </nav>
-  </div>
+  <script type=module src="header.js"></script>
+  <my-header></my-header>
 <br>
 <br>
     <main class="container mx-auto">
@@ -102,10 +32,17 @@
             <br>
             <div class="col-4">
                 <div class="card">
-                    <h2 class="card-title">User Engagement analysis</h2>
+                    <h2 class="card-title">User Feedback</h2>
                     <br>
         
-                    <p class="card-text">Track voter engagement with the app, including the number of voters who have registered, the number of votes cast, and the number of visits to the app. This information can help election officials determine the level of interest in the election</p>
+                    <p class="card-text"> 
+                        If you have any questions, comments, or concerns about our platform or the voting process, please do not hesitate to reach out to us. Our team is here to assist you in any way we can.
+            
+                        <p>To contact us, simply fill out the form below with your name, email address, and message. We will get back to you as soon as possible.
+                        
+                        Thank you for your interest in our college voting website. We look forward to hearing from you!</p>
+            
+                      </p>
                    <br> <a href="#" class="btn btn-primary" onclick="window.location.href='voter-stats.html'">Learn More</a>
                 </div>
                 <br>
@@ -116,7 +53,8 @@
                         <h2 class="card-title">Predicting Election Through Machine Learning</h2>
                         <br>
             
-                        <p class="card-text">  The goal of this project is to develop a machine learning model to predict the winner of a College Class Representative Election based on demographic information of the students. The project will involve collecting and cleaning data, exploring and visualizing the data to gain insights, optimizing the models, training machine learning models, and deploying the final model for prediction. </p>
+                        <p class="card-text">  The goal of this project is to develop a machine learning model to predict the winner of a College Class Representative Election based on demographic information of the students.</p>
+                            <p> The project will involve collecting and cleaning data, exploring and visualizing the data to gain insights, optimizing the models, training machine learning models, and deploying the final model for prediction. </p>
                         <br><a href="#" class="btn btn-primary" onclick="window.location.href='Prediction.html'">Learn More</a>
                     </div>
             </div>
