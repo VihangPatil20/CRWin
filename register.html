@@ -6,10 +6,16 @@
    
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
     <link rel="stylesheet" href="form.css">
-    <script src="auth.js"></script>
     <title>Register</title>
+     
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
 
-    
+    <!-- Auth JS -->
+    <script src="auth.js"></script>
+
   </head>
   <body>
     <main class="container">
@@ -17,88 +23,47 @@
 
       <article>
         <h1>Registration Form</h1>
-        <form id="registration-form">
-          <div class="grid">
-            <div>
-            <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname" placeholder="First name" required>
-          </div>
-          <div>
-            <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
-          </div>
-          </div>
+        <form id="login-form">
+          <label for="full-name">Full Name:</label>
+          <input type="text" id="full-name" name="full-name" required><br>
         
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" placeholder="Email address" required>
+          <label for="roll-no">Roll No:</label>
+          <input type="number" id="roll-no" name="roll-no" required><br>
         
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Password" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br>
+        
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br>
+          
+          <label for="division">Division:</label>
+          <select id="division" name="division">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+          
+          <button type="button" id="login-submit-btn" onclick="submitFormData()">Submit</button>
+        
           <br>
           <br>
-        
-          <button type="submit" onclick="window.location.href='home-page.component.html'">Register</button>
-
-
-<br>
-<br>
           <header class="container">
-        
             <p><a href="#" role="button" onclick="window.location.href='signup.html'"><small>Already have an account?</small></a></p>
           </header>
-       
         </form>
-        
-        <script>
-          // Initialize Firebase
-          const firebaseConfig = {
-    apiKey: "AIzaSyAAG79_O_E-nszPpNuS3ACYn5UVj0Ygz08Y",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    databaseURL: "https://crwin-1dbd6-default-rtdb.firebaseio.com/",
-    projectId: "crwin-1dbd6",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "317785611952",
-    appId: "1:317785611952:web:3bf3aeb5a0673c5cdde575"
-  };
-  
-          firebase.initializeApp(firebaseConfig);
-        
-          // Get a reference to the Firebase Realtime Database service
-          const database = firebase.database();
-        
-          // Get a reference to the Firebase Authentication service
-          const auth = firebase.auth();
-        
-          // Handle user registration form submission
-          async function registerUser() {
-            event.preventDefault();
-        
-            // Get user input values
-            const firstName = document.getElementById('firstname').value;
-            const lastName = document.getElementById('lastname').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-        
-            try {
-              // Create a new user with email and password
-              const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        
-              // Save user data to Firebase Realtime Database
-              await database.ref('users/' + userCredential.user.uid).set({
-                firstName: firstName,
-                lastName: lastName,
-                email: email
-              });
-        
-              // Redirect to home page
-              window.location.href = 'home-page.component.html';
-            } catch (error) {
-              // Handle errors
-              console.error(error);
-              alert('An error occurred while registering the user. Please try again later.');
-            }
-          }
-        </script>
-        
+    
       </article>
-    </main
+    </main>
+    
+    <!-- Pico modal for form validation errors -->
+    <div id="form-modal" class="modal" style="position: fixed;">
+      <div class="modal-content">
+        <h2>Error</h2>
+        <p id="form-modal-message"></p>
+        <button class="btn btn-secondary" onclick="hideFormModal()">OK</button>
+      </div>
+    </div>
+   
+    
+  </body>
+</html>

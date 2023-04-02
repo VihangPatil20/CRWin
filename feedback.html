@@ -5,10 +5,15 @@
     <title>User Feedback Form</title>
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.0.2/css/pico.min.css">
     <link rel="stylesheet" href="contact.css">
-    
+   
+      <!-- Firebase SDK -->
+      <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="feedback.js"></script>
+
   </head>
   <body>
-
     <!-- Hero -->
     <div class="hero" data-theme="dark">
         <nav class="container-fluid">
@@ -24,8 +29,7 @@
               </details>
             </li>
             <li>
-              
-                </ul>
+          </ul>
               </details>
             </li>
           </ul>
@@ -66,65 +70,55 @@
       <div>
         <nav>
               <ul>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/home-page.component.html'">Home</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/about-us.html'">About</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/services.html'">Services</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/feedback.html'">Contact us</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/Demographic.html'">Demographics</a></li> 
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/candidate-info.html'">Candidates</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/news.html'">News</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voter-stats.html'">Engagement</a></li>
-                <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voting.html'">Begin Voting</a></li>
-                
+                <li><a href="#"  onclick="window.location.href='signup.html'">Log out</a></li>
+                <li><a href="#"  onclick="window.location.href='home-page.component.html'">Home</a></li>
+                <li><a href="#"  onclick="window.location.href='about-us.html'">About</a></li>
+                <li><a href="#"  onclick="window.location.href='services.html'">Services</a></li>
+                <li><a href="#"  onclick="window.location.href='feedback.html'">Contact</a></li>
+                <li><a href="#"  onclick="window.location.href='Prediction.html'">Prediction</a></li> 
+                <li><a href="#"  onclick="window.location.href='candidate-info.html'">Candidates</a></li>
+                <li><a href="#"  onclick="window.location.href='news.html'">News</a></li>
+                <li><a href="#"  onclick="window.location.href='voter-stats.html'">Engagement</a></li>
+                <li><a href="#"  onclick="window.location.href='voting.html'"> Vote</a></li>
+                <li><a href="#"  onclick="window.location.href='result.html'">Results</a></li>
+          
               </ul>
             </nav>
       </div>
     <br>
     <br>
-  
     <main class="container">
     
-
-    <header>
-      <h1>User Feedback </h1>
-    </header>
-    <main>
-        
-            <div>
-                <!-- Subscribe -->
-                <section aria-label="Subscribe example">
-                  <div class="container">
-                    <article>
-                      <hgroup>
-                        <h2>Contact us</h2>
-                        <h3></h3>
-                      </hgroup>
-                      <form action="#" method="post">
-                        <fieldset>
-                          <label for="name">Name:</label>
-                          <input type="text" name="name" id="name" required>
-                        </fieldset>
-                        <fieldset>
-                          <label for="email">Email:</label>
-                          <input type="email" name="email" id="email" required>
-                        </fieldset>
-                        <fieldset>
-                          <label for="feedback">Feedback:</label>
-                          <textarea name="feedback" id="feedback" required></textarea>
-                        </fieldset>
-                        <fieldset>
-                          <button type="submit">Submit</button>
-                        </fieldset>
-                      </form>
-                    </article>
-                  </div>
-                </section><!-- ./ Subscribe -->
-                    </section>
-              </div>
-    </main>
-    <footer class="text-center mt-4">
-        <p>&copy; 2023 CRWin. All rights reserved.</p>
-      </footer>
-</main>
+      <header>
+        <h1>User Feedback </h1>
+      </header>
+      <main>
+        <div>
+          <!-- Subscribe -->
+          <section aria-label="Subscribe example">
+            <div class="container">
+              <article>
+                <hgroup>
+                  <h2>Contact us</h2>
+                  <h3></h3>
+                </hgroup>
+                <form id="feedback-form">
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" id="name">
+                
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email">
+                
+                  <label for="message">Message:</label>
+                  <textarea name="message" id="message"></textarea>
+                
+                  <button type="submit" onclick="sentfeedback()">Submit Feedback</button>
+                </form>
+                
+              </article>
+            </div>
+          </section><!-- ./ Subscribe -->
+        </div>
+      </main> 
   </body>
 </html>

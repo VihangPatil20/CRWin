@@ -8,105 +8,53 @@
     <link rel="stylesheet" href="voting.css">
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
     <link rel="stylesheet" href="contact.css">
-    <script src="main.js" defer></script>
-    <style>
-        .poll__option {
-            width: 100%;
-        }
-        .card {
-            flex: 1;
-            padding: 1rem;
-        }
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
 
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
 
-        }
+<!-- Your own JavaScript file -->
+<script src="result.js"></script>
 
-        
-    </style>
     
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js">
-
-window.onload = function() {
-  // your chart.js code here
-
-
-
-        // Define the data for each candidate
-const candidate1Data = {
-  label: 'Candidate 1',
-  backgroundColor: 'rgba(54, 162, 235, 0.2)',
-  borderColor: 'rgba(54, 162, 235, 1)',
-  borderWidth: 1,
-  data: [60]
-};
-
-const candidate2Data = {
-  label: 'Candidate 2',
-  backgroundColor: 'rgba(255, 206, 86, 0.2)',
-  borderColor: 'rgba(255, 206, 86, 1)',
-  borderWidth: 1,
-  data: [30]
-};
-
-const candidate3Data = {
-  label: 'Candidate 3',
-  backgroundColor: 'rgba(255, 99, 132, 0.2)',
-  borderColor: 'rgba(255, 99, 132, 1)',
-  borderWidth: 1,
-  data: [10]
-};
-
-// Set the chart options
-const options = {
-  scales: {
-    yAxes: [{
-      ticks: {
-        beginAtZero: true
+    <style>
+      /* Simple styling for the heading and candidate names */
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
       }
-    }]
-  }
-};
-
-// Get the canvas elements and create the charts
-const candidate1Chart = new Chart(document.getElementById('candidate1-chart'), {
-  type: 'bar',
-  data: {
-    labels: ['Votes'],
-    datasets: [candidate1Data]
-  },
-  options: options
-});
-
-const candidate2Chart = new Chart(document.getElementById('candidate2-chart'), {
-  type: 'bar',
-  data: {
-    labels: ['Votes'],
-    datasets: [candidate2Data]
-  },
-  options: options
-});
-
-const candidate3Chart = new Chart(document.getElementById('candidate3-chart'), {
-  type: 'bar',
-  data: {
-    labels: ['Votes'],
-    datasets: [candidate3Data]
-  },
-  options: options
-});
-
-
-
-
+      .class-heading {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .candidate {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+      .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-    </script>
+.class-results {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.class-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.candidate {
+  display: inline-block;
+  margin: 0 10px;
+}
+      
+    </style>
+   
 </head>
 <body>
   
@@ -167,16 +115,18 @@ const candidate3Chart = new Chart(document.getElementById('candidate3-chart'), {
     <div>
       <nav>
             <ul>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/home-page.component.html'">Home</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/about-us.html'">About</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/services.html'">Services</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/feedback.html'">Contact us</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/Demographic.html'">Demographics</a></li> 
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/candidate-info.html'">Candidates</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/news.html'">News</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voter-stats.html'">Engagement</a></li>
-              <li><a href="#"  onclick="window.location.href='http://127.0.0.1:5500/voting.html'">Begin Voting</a></li>
-              
+              <li><a href="#"  onclick="window.location.href='signup.html'">Log out</a></li>
+              <li><a href="#"  onclick="window.location.href='home-page.component.html'">Home</a></li>
+              <li><a href="#"  onclick="window.location.href='about-us.html'">About</a></li>
+              <li><a href="#"  onclick="window.location.href='services.html'">Services</a></li>
+              <li><a href="#"  onclick="window.location.href='feedback.html'">Contact</a></li>
+              <li><a href="#"  onclick="window.location.href='Prediction.html'">Prediction</a></li> 
+              <li><a href="#"  onclick="window.location.href='candidate-info.html'">Candidates</a></li>
+              <li><a href="#"  onclick="window.location.href='news.html'">News</a></li>
+              <li><a href="#"  onclick="window.location.href='voter-stats.html'">Engagement</a></li>
+              <li><a href="#"  onclick="window.location.href='voting.html'"> Vote</a></li>
+              <li><a href="#"  onclick="window.location.href='result.html'">Results</a></li>
+        
             </ul>
           </nav>
     </div>
@@ -184,50 +134,49 @@ const candidate3Chart = new Chart(document.getElementById('candidate3-chart'), {
   <br>
 </div>
 
-<canvas id="candidate1-chart"></canvas>
-<canvas id="candidate2-chart"></canvas>
-<canvas id="candidate3-chart"></canvas>
-
-        
-<div class="container">
-    <h1 class="text-center">Election Results</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            <h2>Candidate 1</h2>
-          </div>
-          <div class="card-body">
-            <canvas id="candidate1-chart"></canvas>
-            <p>120 votes</p>
-          </div>
+<article>
+  <container>
+    <h1 style="font-size: 24px;">Election Results</h1>
+    <h3>Votes recieved by each candidate</h3>
+    
+        <div class="class-results">
+            <table style="width: 90%; border-collapse: collapse; text-align: center; font-size: 18px;  height: 400px;">
+                <thead style="background-color: #173f49;">
+                    <tr>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Class</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Candidate 1</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Candidate 2</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Candidate 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Class A</td>
+                        <td id="count1" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count2" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count3" style="padding: 10px; border: 1px solid #ddd;"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Class B</td>
+                        <td id="count1" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count2" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count3" style="padding: 10px; border: 1px solid #ddd;"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Class C</td>
+                        <td id="count1" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count2" style="padding: 10px; border: 1px solid #ddd;"></td>
+                        <td id="count3" style="padding: 10px; border: 1px solid #ddd;"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            <h2>Candidate 2</h2>
-          </div>
-          <div class="card-body">
-            <canvas id="candidate2-chart"></canvas>
-            <p>60 votes</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            <h2>Candidate 3</h2>
-          </div>
-          <div class="card-body">
-            <canvas id="candidate3-chart"></canvas>
-            <p>20 votes</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  
+    <a href="#" role="button" onclick="result()" style="font-size: 18px;">See the Result</a>
+
+ 
+
+</article>
 
 </article>
 
