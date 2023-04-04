@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting System</title>
     <link rel="stylesheet" href="voting.css">
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.0.4/css/pico.min.css">
     <link rel="stylesheet" href="contact.css">
-    <script type=module src="classC.js" defer></script>
+    <script type=module src="classC.js"></script>
 
 
     <!-- Include SweetAlert CSS and JavaScript files -->
@@ -43,15 +43,11 @@
 
 </head>
 <body>
-  
   <script type=module src="header.js"></script>
   <my-header></my-header>
   <br>
-  <br>
-
-
-    <article>
- 
+  <br>  
+   <article>
       <header>
         <p>
           <h3>
@@ -59,58 +55,46 @@
           </h3>
         </p>
       </header>
-<div>
-
-
-  <div class="cards">
-    <div class="card" data-votes="0">
-      <div class="poll__title">Vote for Candidate 1</div>
-      <div class="poll__option">
-        <img src="assets/candidate.jpg" alt="Candidate 1" width="50%" class="poll__image">
-        <br><br>
-        <div class="poll__option-fill"> </div>
-        <div class="poll__option-info"></div>
-        <button class="poll__button">Vote</button>
-      </div>
+      <div class="cards">
+        <div class="card" data-votes="0">
+          <div class="poll__title">Vote for Candidate 1</div>
+          <div class="poll__option">
+            <img src="assets/candidate.jpg" alt="Candidate 1" width="50%" class="poll__image">
+            <br><br>
+            <div class="poll__option-fill"> </div>
+            <div class="poll__option-info"></div>
+            <button class="poll__button">Vote</button>
+          </div>
+        </div>
+        <div class="card" data-votes="0">
+          <div class="poll__title">Vote for Candidate 2</div>
+          <div class="poll__option">
+            <img src="assets/candidate.jpg" alt="Candidate 2" width="50%" class="poll__image">
+            <br><br>
+            <div class="poll__option-fill"></div>
+            <div class="poll__option-info"></div>
+            <button class="poll__button">Vote</button>
+          </div>
+        </div>
+        <div class="card" data-votes="0">
+          <div class="poll__title">Vote for Candidate 3</div>
+          <div class="poll__option">
+            <img src="assets/candidate.jpg" alt="Candidate 3" width="50%" class="poll__image">
+            <br><br>
+            <div class="poll__option-fill"></div>
+            <div class="poll__option-info"></div>
+            <button class="poll__button">Vote</button>
+          </div>
+        </div>
+          </div>   
+          <br>
+          <br> 
+          <button onclick="window.location.href='result.html'">See Results</a>
+        </article>
+        <footer class="text-center mt-4">
+          <p>&copy; 2023 CRWin. All rights reserved.</p>
+        </footer>
     </div>
-  
-    <div class="card" data-votes="0">
-      <div class="poll__title">Vote for Candidate 2</div>
-      <div class="poll__option">
-        <img src="assets/candidate.jpg" alt="Candidate 2" width="50%" class="poll__image">
-        <br><br>
-        <div class="poll__option-fill"></div>
-        <div class="poll__option-info"></div>
-        <button class="poll__button">Vote</button>
-      </div>
-    </div>
-  
-    <div class="card" data-votes="0">
-      <div class="poll__title">Vote for Candidate 3</div>
-      <div class="poll__option">
-        <img src="assets/candidate.jpg" alt="Candidate 3" width="50%" class="poll__image">
-        <br><br>
-        <div class="poll__option-fill"></div>
-        <div class="poll__option-info"></div>
-        <button class="poll__button">Vote</button>
-      </div>
-    </div>
-
-      </div>
-      
-      <br>
-      <br>
-     
-      <button onclick="window.location.href='result.html'">See Results</a>
-
-    </article>
-
-    <footer class="text-center mt-4">
-      <p>&copy; 2023 CRWin. All rights reserved.</p>
-    </footer>
-
-</div>
-
-</body>
-
-</html>
+    </body>
+    </html>
+    

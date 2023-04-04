@@ -12,9 +12,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function result() {
-
   //show alert
-  alert("Here are the results!")
+  swal.fire("Here are the Results!");
 
   // Read the voteCounts documents in the voting collections for all three classes
   const promises = [

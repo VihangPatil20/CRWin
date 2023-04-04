@@ -22,8 +22,7 @@ function submitFormData() {
   var password = document.getElementById('password').value;
 
   // Store user's division in local storage
-localStorage.setItem('division', division);
-
+  localStorage.setItem('division', division);
 
   // Perform basic form validation
   if (!fullName || !rollNo || !email || !password) {
@@ -34,14 +33,14 @@ localStorage.setItem('division', division);
   // Validate roll no format
   var rollNoPattern = /^\d+$/;
   if (!rollNoPattern.test(rollNo)) {
-    alert("Please enter a valid roll number");
+    Swal.fire("Please enter a valid roll number");
     return;
   }
 
   // Validate email format
   var emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   if (!emailPattern.test(email)) {
-    alert("Please enter a valid email address");
+    Swal.fire("Please enter a valid email address");
     return;
   }
 
@@ -58,11 +57,11 @@ localStorage.setItem('division', division);
   var usersRef = database.ref('users');
   usersRef.orderByChild('rollNo').equalTo(rollNo).once('value', function(snapshot) {
     if (snapshot.exists()) {
-      alert('A user with the same roll number already exists');
+      Swal.fire('Error', 'A user with the same roll number already exists', 'error');
     } else {
       usersRef.orderByChild('email').equalTo(email).once('value', function(snapshot) {
         if (snapshot.exists()) {
-          Swal.fire('A user with the same email address already exists');
+          Swal.fire('Error', 'A user with the same email address already exists', 'error');
         } else {
           // Push form data to Firebase
           var newUserRef = usersRef.push();
@@ -97,3 +96,4 @@ localStorage.setItem('division', division);
     }
   });
 }
+

@@ -21,7 +21,7 @@ function login() {
 
   // Perform basic form validation
   if (!email || !password) {
-    alert("Please fill in all the fields");
+    Swal.fire("Please fill in all the fields");
     return;
   }
 
@@ -39,11 +39,11 @@ function login() {
           // Redirect to home page
           window.location.href = 'home-page.component.html';
         } else {
-          alert('Incorrect password');
+          Swal.fire('Incorrect password');
         }
       });
     } else {
-      alert('A user with this email address does not exist');
+      Swal.fire('A user with this email address does not exist');
     }
   });
 }

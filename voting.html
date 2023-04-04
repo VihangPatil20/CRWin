@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting System</title>
     <link rel="stylesheet" href="voting.css">
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.0.4/css/pico.min.css">
     <link rel="stylesheet" href="contact.css">
     <script src="voting.js" defer></script>
 
@@ -35,48 +35,40 @@
 <script src="logout.js"></script>
 </head>
 <body>
-  <script type=module src="header.js"></script>
-  <my-header></my-header>
-  <br>
-  <br>
-   <div>
-        <nav>
-            <ul>
-                
-              <li><strong>CRWin - Integrated CR Elections and Predictions
-              </strong></li>
-    </div>
-    <article>
-<br>
-<h3>Welcome to the voting page for the class representative election of our college! As a valued member of our community, your voice matters, and we want to hear from you. Please take a moment to select your division by choosing either option A, B, or C. </h3>
-<br>
-     <!-- Primary -->
-     <details role="list">
-      <summary aria-haspopup="listbox" role="button">
-        Select your Division
-      </summary>
-      <ul role="listbox">
-        <li><a onclick="validateUser('A')">Division A</a></li>
-        <li><a onclick="validateUser('B')">Division B</a></li>
-        <li><a onclick="validateUser('C')">Division C</a></li>
-      </ul>
-    </details>
-    
-
+  <script type="module" src="header.js"></script>
+<my-header></my-header>
 <br><br>
-
-<div class="cards">
-  <a href="#" role="button" onclick="window.location.href='result.html'">See Results</a>
+<div>
+  <nav>
+    <ul>
+      <li><strong>CRWin - Integrated CR Elections and Predictions</strong></li>
+    </ul>
+  </nav>
 </div>
+<article>
+  <br>
+  <h3>Welcome to the voting page for the class representative election of our college! As a valued member of our community, your voice matters, and we want to hear from you. Please take a moment to select your division by choosing either option A, B, or C. </h3>
+  <br>
+  <!-- Primary -->
+  <details>
+    <summary>Select your Division</summary>
+    <ul>
+      <li><a onclick="validateUser('A')">Division A</a></li>
+      <li><a onclick="validateUser('B')">Division B</a></li>
+      <li><a onclick="validateUser('C')">Division C</a></li>
+    </ul>
+  </details>
+  <br><br>
+  <div class="cards">
+    <a href="result.html">See Results</a>
+  </div>
+  <br>
+  <br>
+</article>
+<footer class="text-center mt-4">
+  <p>&copy; 2023 CRWin. All rights reserved.</p>
+</footer>
 
-<br>
-<br>
-
-    </article>
-
-    <footer class="text-center mt-4">
-      <p>&copy; 2023 CRWin. All rights reserved.</p>
-    </footer>
 
 </body>
 </html>
