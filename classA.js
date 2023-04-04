@@ -8,69 +8,162 @@ firebase.initializeApp({
 /// Reference the 'voting' collection in Firestore
 const db = firebase.firestore().collection('voting A');
 
-// set max number of votes
-const maxVotes = 65;
+    
+ // Set max number of votes
+ const maxVotes = 65;
+  
+ // Get elements for each candidate
+ const candidate1 = document.querySelector('.card:nth-of-type(1)');
+ const candidate2 = document.querySelector('.card:nth-of-type(2)');
+ const candidate3 = document.querySelector('.card:nth-of-type(3)');
+ 
+ // Set initial vote counts to 0
+ let count1 = 0;
+ let count2 = 0;
+ let count3 = 0;
 
-// get elements for each candidate
-const candidate1 = document.querySelector('.card:nth-of-type(1)');
-const candidate2 = document.querySelector('.card:nth-of-type(2)');
-const candidate3 = document.querySelector('.card:nth-of-type(3)');
+// Check local storage to see if the user has already voted
+if (localStorage.getItem('hasVoted')) {
+  // User has already voted, disable voting
+  candidate1.removeEventListener('click', handleCandidate1Click);
+  candidate2.removeEventListener('click', handleCandidate2Click);
+  candidate3.removeEventListener('click', handleCandidate3Click);
+  Swal.fire({
+    title: 'Error',
+    text: 'You have already voted.',
+    icon: 'error'
+  });
+} else {
+  // User has not voted yet, enable voting
+  candidate1.addEventListener('click', handleCandidate1Click);
+  candidate2.addEventListener('click', handleCandidate2Click);
+  candidate3.addEventListener('click', handleCandidate3Click);
+}
 
-// set initial vote counts to 0
-let count1 = 0;
-let count2 = 0;
-let count3 = 0;
-
-// add click event listener to each candidate element
-candidate1.addEventListener('click', () => {
+function handleCandidate1Click() {
   if ((count1 + count2 + count3) < maxVotes) {
-    count1++;
-    updateVotes();
-    updateFirestore();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to vote for candidate 1?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        count1++;
+        updateFirestore();
+        localStorage.setItem('hasVoted', true);
+        Swal.fire({
+          title: 'Success',
+          text: 'Thank you for voting!',
+          icon: 'success'
+        });
+        // Disable voting after the user has voted
+        candidate1.removeEventListener('click', handleCandidate1Click);
+        candidate2.removeEventListener('click', handleCandidate2Click);
+        candidate3.removeEventListener('click', handleCandidate3Click);
+      }
+    })
+  } else {
+    Swal.fire({
+      title: 'Error',
+      text: 'You have already voted.',
+      icon: 'error'
+    });
   }
-});
+}
 
-candidate2.addEventListener('click', () => {
+function handleCandidate2Click() {
   if ((count1 + count2 + count3) < maxVotes) {
-    count2++;
-    updateVotes();
-    updateFirestore();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to vote for candidate 2?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        count2++;
+        updateFirestore();
+        localStorage.setItem('hasVoted', true);
+        Swal.fire({
+          title: 'Success',
+          text: 'Thank you for voting!',
+          icon: 'success'
+        });
+        // Disable voting after the user has voted
+        candidate1.removeEventListener('click', handleCandidate1Click);
+        candidate2.removeEventListener('click', handleCandidate2Click);
+        candidate3.removeEventListener('click', handleCandidate3Click);
+      }
+    })
+  } else {
+    Swal.fire({
+      title: 'Error',
+      text: 'You have already voted.',
+      icon: 'error'
+    });
   }
-});
+}
 
-candidate3.addEventListener('click', () => {
+function handleCandidate3Click() {
   if ((count1 + count2 + count3) < maxVotes) {
-    count3++;
-    updateVotes();
-    updateFirestore();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You want to vote for candidate 3?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        count3++;
+        updateFirestore();
+        localStorage.setItem('hasVoted', true);
+        Swal.fire({
+          title: 'Success',
+          text: 'Thank you for voting!',
+          icon: 'success'
+        });
+        // Disable voting after the user has voted
+        candidate1.removeEventListener('click', handleCandidate1Click);
+        candidate2.removeEventListener('click', handleCandidate2Click);
+        candidate3.removeEventListener('click', handleCandidate3Click);
+      }
+    })
+  } else {
+    Swal.fire({
+      title: 'Error',
+      text: 'You have already voted.',
+      icon: 'error'
+    });
   }
-});
+}
 
-// function to update vote counts and display counts and percentages
-function updateVotes() {
-  // calculate percentage of votes for each candidate
+
+// Function to update vote counts and log counts and percentages in Firestore
+function updateFirestore() {
+  // Calculate percentage of votes for each candidate
   const total = count1 + count2 + count3;
   const percent1 = Math.round((count1 / total) * 100);
   const percent2 = Math.round((count2 / total) * 100);
   const percent3 = Math.round((count3 / total) * 100);
-
-  // update vote count and percentage display for each candidate
-  candidate1.querySelector('.poll__option-info').textContent = `${count1} votes (${percent1}%)`;
-  candidate2.querySelector('.poll__option-info').textContent = `${count2} votes (${percent2}%)`;
-  candidate3.querySelector('.poll__option-info').textContent = `${count3} votes (${percent3}%)`;
-}
-
-// function to update vote counts in Firestore
-function updateFirestore() {
+  
+  // Update vote counts and percentages in Firestore
   db.doc('voteCounts').set({
     count1: count1,
     count2: count2,
-    count3: count3
+    count3: count3,
+    percent1: percent1,
+    percent2: percent2,
+    percent3: percent3,
   })
   .then(() => {
-    console.log('Vote counts updated in Firestore');
+    console.log('Vote counts and percentages logged in Firestore');
   })
   .catch((error) => {
-    console.error('Error updating vote counts in Firestore: ', error);
+    console.error('Error logging vote counts and percentages in Firestore: ', error);
   });
 }

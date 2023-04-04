@@ -27,7 +27,7 @@ localStorage.setItem('division', division);
 
   // Perform basic form validation
   if (!fullName || !rollNo || !email || !password) {
-    alert("Please fill in all the fields");
+    Swal.fire("Please fill in all the fields");
     return;
   }
 
@@ -62,7 +62,7 @@ localStorage.setItem('division', division);
     } else {
       usersRef.orderByChild('email').equalTo(email).once('value', function(snapshot) {
         if (snapshot.exists()) {
-          alert('A user with the same email address already exists');
+          Swal.fire('A user with the same email address already exists');
         } else {
           // Push form data to Firebase
           var newUserRef = usersRef.push();
@@ -87,6 +87,11 @@ localStorage.setItem('division', division);
 
           // Redirect to home page
           window.location.href = 'home-page.component.html';
+
+          Swal.fire({
+            icon: 'success',
+            title: 'Your account has been successfully created',
+          });
         }
       });
     }

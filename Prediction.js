@@ -12,6 +12,11 @@ firebase.initializeApp(firebaseConfig);
 
 function predict(){
 
+  Swal.fire({
+    icon: 'success',
+    title: 'Here is our Prediction for the next CR election!',
+  });
+ 
 
 
 // Read the accuracy and winner fields from the WINNER document in the AIML collection

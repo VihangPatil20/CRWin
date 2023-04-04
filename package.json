@@ -3,6 +3,8 @@
     "@picocss/pico": "^1.5.7",
     "chart.js": "^4.2.1",
     "firebase": "^9.19.1",
-    "firebase-admin": "^11.5.0"
+    "firebase-admin": "^11.5.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.1.0"
   }
 }

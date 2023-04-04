@@ -14,7 +14,11 @@ function validateUser(division) {
       }
     } else {
       // Display alert if user does not have access to the selected division
-      alert('You do not have access to this division');
+      Swal.fire({
+        icon: 'error',
+        title: 'Acess Denied',
+        text: 'You do not have access to the selected division',
+      });
     }
   }
   

@@ -12,6 +12,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function result() {
+
+  //show alert
+  alert("Here are the results!")
+
   // Read the voteCounts documents in the voting collections for all three classes
   const promises = [
     firebase.firestore().collection("voting A").doc("voteCounts").get(),
@@ -28,6 +32,7 @@ function result() {
     const count1Displays = document.querySelectorAll("#count1");
     count1Displays.forEach((display, index) => {
       display.innerHTML = ` ${voteCounts[index].count1}`;
+      
     });
 
     const count2Displays = document.querySelectorAll("#count2");
@@ -43,4 +48,8 @@ function result() {
   .catch((error) => {
     console.log("Error getting documents:", error);
   });
+
+
+
+
 }

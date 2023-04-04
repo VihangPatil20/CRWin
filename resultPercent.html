@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="voting.css">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="logout.js"></script>
+
+ <!-- Include SweetAlert CSS and JavaScript files -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.0/dist/sweetalert2.all.min.js"></script>
+ 
+<!-- Your own JavaScript file -->
+<script src="resultPercent.js"></script>
+
+    
+    <style>
+
+    </style>
+   
+</head>
+<body>
+  
+  <script type=module src="header.js"></script>
+  <my-header></my-header>
+  <br>
+  <br>
+</div>
+
+<article>
+  
+<div>
+  
+  <div style="text-align: center;">
+    <container>
+      <h1 style="font-size: 24px">Election Percent of Votes</h1>
+      <h3>Percentage of Votes received by each candidate</h3>
+    </container>
+    
+    <div style="display: flex; justify-content: space-around;">
+      <div>
+        <h2>Class A</h2>
+        <strong><h3>Percentage:</h3></strong>
+        <p>Candidate 1: <span id="percent1A"></span></p>
+        <p>Candidate 2: <span id="percent2A"></span></p>
+        <p>Candidate 3: <span id="percent3A"></span></p>
+      </div>
+    
+      <div>
+        <h2>Class B</h2>
+        <strong><h3>Percentage:</h3></strong>
+        <p>Candidate 1: <span id="percent1B"></span></p>
+        <p>Candidate 2: <span id="percent2B"></span></p>
+        <p>Candidate 3: <span id="percent3B"></span></p>
+      </div>
+    
+      <div>
+        <h2>Class C</h2>
+        <strong><h3>Percentage:</h3></strong>
+        <p>Candidate 1: <span id="percent1C"></span></p>
+        <p>Candidate 2: <span id="percent2C"></span></p>
+        <p>Candidate 3: <span id="percent3C"></span></p>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <button onclick="result()">Show Percent</button>
+  
+
+  </div>
+</div>
+
+        </container>
+    
+
+</article>
+
+</article>
+
+<footer class="text-center mt-4">
+  <p>&copy; 2023 CRWin. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
+  </body>
+</html>

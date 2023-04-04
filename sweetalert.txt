@@ -1,0 +1,1 @@
+ npm install sweetalert2@11.1.0
