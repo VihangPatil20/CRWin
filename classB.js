@@ -150,12 +150,12 @@ function updateFirestore() {
   const percent1 = Math.round((count1 / total) * 100);
   const percent2 = Math.round((count2 / total) * 100);
   const percent3 = Math.round((count3 / total) * 100);
-  
-  // Update vote counts and percentages in Firestore
-  db.doc('voteCounts').set({
-    count1: count1,
-    count2: count2,
-    count3: count3,
+
+  // Increment vote counts and percentages in Firestore
+  db.doc('voteCounts').update({
+    count1: firebase.firestore.FieldValue.increment(count1),
+    count2: firebase.firestore.FieldValue.increment(count2),
+    count3: firebase.firestore.FieldValue.increment(count3),
     percent1: percent1,
     percent2: percent2,
     percent3: percent3,
