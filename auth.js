@@ -21,8 +21,11 @@ function submitFormData() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
-  // Store user's division in local storage
-  localStorage.setItem('division', division);
+  // Get selected division
+  var division = document.getElementById('division').value;
+
+  // Store division value in local storage
+  localStorage.setItem('currentDivision', division);
 
   // Perform basic form validation
   if (!fullName || !rollNo || !email || !password) {
@@ -43,12 +46,6 @@ function submitFormData() {
     Swal.fire("Please enter a valid email address");
     return;
   }
-
-  // Get selected division
-  var division = document.getElementById('division').value;
-
-  // Store division value in local storage
-  localStorage.setItem('division', division);
 
   // Encrypt the password
   var encryptedPassword = btoa(password);
